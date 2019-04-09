@@ -1,0 +1,132 @@
+
+CL-USER 1 > (prim 14)
+
+Error: Undefined function HASDIVISOR called with arguments (14 2).
+  1 (continue) Try invoking HASDIVISOR again.
+  2 Return some values from the call to HASDIVISOR.
+  3 Try invoking something other than HASDIVISOR with the same arguments.
+  4 Set the symbol-function of HASDIVISOR to another function.
+  5 (abort) Return to level 0.
+  6 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 2 : 1 > (prim 14)
+NIL
+
+CL-USER 3 : 1 > (prim 2)
+T
+
+CL-USER 4 : 1 > (prim 3)
+T
+
+CL-USER 5 : 1 > (prim 5)
+T
+
+CL-USER 6 : 1 > (prim 6)
+NIL
+
+CL-USER 7 : 1 > (prim 17)
+T
+
+CL-USER 8 : 1 > (prim 0)
+NIL
+
+CL-USER 9 : 1 > (prim 1)
+NIL
+
+CL-USER 10 : 1 > (allSublist '(1 2 (3 (4 5) (6 7)) 8 (9 10)))
+
+Error: Undefined operator ALLSUBLIST in form (ALLSUBLIST (QUOTE (1 2 (3 # #) 8 (9 10)))).
+  1 (continue) Try invoking ALLSUBLIST again.
+  2 Return some values from the form (ALLSUBLIST (QUOTE (1 2 (3 # #) 8 (9 10)))).
+  3 Try invoking something other than ALLSUBLIST with the same arguments.
+  4 Set the symbol-function of ALLSUBLIST to another function.
+  5 Set the macro-function of ALLSUBLIST to another function.
+  6 (abort) Return to level 1.
+  7 Return to debug level 1.
+  8 Return to level 0.
+  9 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 11 : 2 > (allSublists '(1 2 (3 (4 5) (6 7)) 8 (9 10)))
+((3 (4 5) (6 7)) ((4 5) NIL (6 7) NIL) (9 10) NIL)
+
+CL-USER 12 : 2 > (allSublists '(1 2 (3 (4 5) (6 7)) 8 (9 10)))
+(3 (4 5) (6 7) (4 5 NIL 6 7 NIL) 9 10 NIL)
+
+CL-USER 13 : 2 > (allSublists '(1 2 (3 (4 5) (6 7)) 8 (9 10)))
+((3 (4 5) (6 7)) (4 5) (6 7) (9 10))
+
+CL-USER 14 : 2 > (allSublists '(1 2 (3 (4 5) (6 7)) 8 (9 10)))
+((3 (4 5) (6 7)) (4 5) (6 7) (9 10))
+
+CL-USER 15 : 2 > (mainAll '(1 2 (3 (4 5) (6 7)) 8 (9 10)))
+((1 2 (3 (4 5) (6 7)) 8 (9 10)) (3 (4 5) (6 7)) (4 5) (6 7) (9 10))
+
+CL-USER 16 : 2 > (mainAll '(1 2 (3 (4 5) (6 7)) 8 (9 10)))
+((1 2 (3 (4 5) (6 7)) 8 (9 10)) (3 (4 5) (6 7)) (4 5) (6 7) (9 10))
+
+CL-USER 17 : 2 > (maximum '((7 8 (5 (40)) (65 (4 5 33)))))
+65
+
+CL-USER 18 : 2 > (levelK '(a (b (c)) (d) (e (f))))
+
+Error: The call (#<Function LEVELK 200A9E0A> (A (B #) (D) (E #))) does not match definition (#<Function LEVELK 200A9E0A> L K LEVEL).
+   1 (continue) Return a value from the call to #<Function LEVELK 200A9E0A>.
+   2 Try calling #<Function LEVELK 200A9E0A> again.
+   3 Try calling another function instead of #<Function LEVELK 200A9E0A> with the same arguments.
+   4 Try calling #<Function LEVELK 200A9E0A> with a new argument list.
+   5 (abort) Return to level 2.
+   6 Return to debug level 2.
+   7 Return to level 1.
+   8 Return to debug level 1.
+   9 Return to level 0.
+  10 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 19 : 3 > (levelK '(a (b (c)) (d) (e (f))) 3 0)
+NIL
+
+CL-USER 20 : 3 > (levelK '(a (b (c)) (d) (e (f))) 0 0)
+(A (B (C)) (D) (E (F)))
+
+CL-USER 21 : 3 > (levelK '(a (b (c)) (d) (e (f))) 0 0)
+((A (B (C)) (D) (E (F))))
+
+CL-USER 22 : 3 > (levelOfK '(a (b (c)) (d) (e (f))) 0 0)
+((A (B (C)) (D) (E (F))))
+
+CL-USER 23 : 3 > (levelOfK '(a (b (c)) (d) (e (f))) 0 0)
+NIL
+
+CL-USER 24 : 3 > (levelOfK '(a (b (c)) (d) (e (f))) 0 -1)
+(A)
+
+CL-USER 25 : 3 > (levelOfK '(a (b (c)) (d) (e (f))) 1 -1)
+(B D E)
+
+CL-USER 26 : 3 > (levelOfK '(a (b (c)) (d) (e (f))) 2 -1)
+(C F)
+
+CL-USER 27 : 3 > (levelOfK '(a (b (c)) (d) (e (f))) 3 -1)
+NIL
+
+CL-USER 28 : 3 > (levelOfK '(a (b (c)) (d) (e (f))) 0 -1)
+(A)
+
+CL-USER 29 : 3 > (levelOfK '(a (b (c)) (d) (e (f))) 1 -1)
+(B D E)
+
+CL-USER 30 : 3 > (levelOfK '(a (b (c)) (d) (e (f))) 2 -1)
+(C F)
+
+CL-USER 31 : 3 > (levelOfK '(a (b (c)) (d) (e (f))) 3 -1)
+NIL
+
+CL-USER 32 : 3 > 

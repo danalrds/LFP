@@ -1,0 +1,75 @@
+det([],_,_,Max,PozBun,[PozBun,Max]).
+det([H|T],Poz,C,Max,PozBun,Rez):-
+    H mod 2 =\= 0,
+    C=<Max,
+    C2 is 0,
+    Poz2 is Poz+1,
+    det(T,Poz2,C2,Max,PozBun,Rez),!.
+det([H|T],Poz,C,Max,PozBun,Rez):-
+    H mod 2=:=0,
+    C2 is C+1,
+    Poz2 is Poz+1,
+    det(T,Poz2,C2,Max,PozBun,Rez).
+det([H|T],Poz,C,Max,_,Rez):-
+    H mod 2=\=0,
+    C>Max,
+    Max2 is C,
+    C2 is 0,
+    PozBun2 is Poz-Max2,
+    Poz2 is Poz+1,
+    det(T,Poz2,C2,Max2,PozBun2,Rez).
+
+
+build([],_,_,_,[]).
+build([H|T],Poz,Start,Fin,Rez):-
+    Poz>=Start,
+    Poz=<Fin,
+    Poz2 is Poz+1,
+    build(T,Poz2,Start,Fin,R),
+    Rez=[H|R].
+build([_|T],Poz,Start,Fin,Rez):-
+    Poz<Start,
+    Poz2 is Poz+1,
+    build(T,Poz2,Start,Fin,Rez),!.
+build([_|T],Poz,Start,Fin,Rez):-
+    Poz>Fin,
+    Poz2 is Poz+1,
+    build(T,Poz2,Start,Fin,Rez),!.
+
+append([],E,[E]):-!.
+append([H|T],E,Rez):-
+    append(T,E,Tr),
+    Rez=[H|Tr].
+
+solve([H|T],Rez):-
+    append([H|T],5,List),
+    det(List,1,0,0,0,[H1,H2|_]),
+    Fin is H1+H2-1,
+    build(List,1,H1,Fin,Rez),!.
+
+main([],[]).
+main([H|T],Rez):-
+    number(H),
+    main(T,R),
+    Rez=[H|R],!.
+main([H|T],Rez):-
+    is_list(H),
+    solve(H,R2),
+    main(T,R),
+    Rez=[R2|R].
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

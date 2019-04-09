@@ -1,0 +1,24 @@
+appendlist([], X, X).
+appendlist([T|H], X, [T|L]) :- appendlist(H, X, L).
+
+permuta([], []).
+permuta([X], [X]).
+permuta([T|H], X) :-
+    permuta(H, H1),
+    appendlist(L1, L2, H1),
+    appendlist(L1, [T], X1),
+    appendlist(X1, L2, X).
+
+
+
+%this is the thing
+
+genInsert([],E,[E]).
+genInsert([H|T],E,[E,H|T]).
+genInsert([H|T],E,[H|TR]):-
+    genInsert(T,E,TR).
+
+perm([],[]).
+perm([H|T],R):-
+    perm(T,RT),
+    genInsert(RT,H,R).

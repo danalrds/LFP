@@ -1,0 +1,14 @@
+(defun prim(N)
+  (cond
+       ((< N 2 ) nil)
+       (T (hasDivisor N 2))
+  )
+)
+
+(defun hasDivisors(N D)
+  (cond
+       ((> D (floor N 2)) T)
+       ((=(mod N D)0) nil)
+       (T (hasDivisors N (+ 1 D)))
+  )
+)

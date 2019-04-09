@@ -1,0 +1,28 @@
+gcDivisor(A,0,A):-!.
+gcDivisor(A,B,Rez):-
+    R is A mod B,
+    gcDivisor(B, R,Rez).
+
+
+gcdiv(A,B,R):-
+    A>B,
+    gcDivisor(A,B,R).
+gcdiv(A,B,R):-
+    B>A,
+    gcDivisor(B,A,R).
+
+
+lcm(A,B,R):-
+    M is A* B,
+    gcdiv(A,B,R2),
+    R is M /R2,!.
+
+gcdList([E],E).
+gcdList([H|T],R):-
+    gcdList(T,R2),
+    gcdiv(H,R2,R),!.
+
+lcmList([E],E).
+lcmList([H|T],R):-
+    lcmList(T,R2),
+    lcm(H,R2,R).

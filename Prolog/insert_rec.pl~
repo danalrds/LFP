@@ -1,0 +1,26 @@
+insert([],_,_,_,_,[]):-!.
+insert([H|T],Poz,Put,PozN,E,Rez):-
+    Poz=\=PozN,
+    Poz2 is Poz+1,
+    insert(T,Poz2,Put,PozN,E,R),
+    Rez=[H|R],!.
+insert([H|T],Poz,Put,PozN,E,Rez):-
+    Poz=:=PozN,
+    Poz2 is Poz+1,
+    Put2 is Put*2,
+    PozN2 is PozN+Put2,
+    insert(T,Poz2,Put2,PozN2,E,R),
+    Rez=[H,E|R].
+
+insert_sublist([],_,[]):-!.
+insert_sublist([H|T],_,Rez):-
+    number(H),
+    LastNr2 is H,
+    insert_sublist(T,LastNr2,R),
+    Rez=[H|R].
+insert_sublist([H|T],LastNr,Rez):-
+    is_list(H),
+    insert_sublist(T,LastNr,R),
+    insert(H,1,1,1,LastNr,R2),
+    Rez=[R2|R].
+

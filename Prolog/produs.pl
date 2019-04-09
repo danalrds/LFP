@@ -1,0 +1,27 @@
+append([],E,[E]):-!.
+append([H|T],E,[HR|Rez]):-
+    HR is H,
+    append(T,E,Rez),!.
+
+reverse3([],[]):-!.
+reverse3([E],[E]):-!.
+reverse3([H|T],Rez):-
+    reverse3(T,R),
+    append(R,H,Rez).
+
+produs([],_,0,[]):-!.
+produs([],_,Minte,Rez):-
+    produs([],_,0,R),
+    Rez=[Minte|R],!.
+produs([H|T],E2,Minte,Rez):-
+    Prod is H*E2+Minte,
+    Minte2 is Prod div 10,
+    produs(T,E2,Minte2,R),
+    PN is Prod mod 10,
+    Rez=[PN|R],!.
+
+main([],_,[]):-!.
+main([H|T],E2,Rez):-
+    reverse3([H|T],List1),
+    produs(List1,E2,0,R),
+    reverse3(R,Rez).

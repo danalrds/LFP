@@ -1,0 +1,23 @@
+%dana are mere
+count([],1).
+count([_|T],R):-
+    count(T,R2),
+    R is (-1)*R2.
+
+
+min([H|T], R) :-
+    min(T, H, R).
+min([], R,R).
+min([H|T], R0, R) :-
+    R1 is min(H, R0),
+    min(T, R1, R).
+
+remove_first(X,[X|Xs],Xs).
+remove_first(X,[Y|Xs],[Y|Ys]) :-
+    X \= Y,
+    remove_first(X,Xs,Ys).
+
+do([],[]).
+do([H|T],R):-
+    min([H|T],Res),
+    remove_first(Res,[H|T],R).

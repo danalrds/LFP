@@ -1,0 +1,56 @@
+inv(0,Col,Col):-!.
+inv(N,Col,Rez):-
+    N>0,
+    Uc is N mod 10,
+    Col1 is Col*10+Uc,
+    N1 is N div 10,
+    inv(N1,Col1,Rez).
+
+aparitii([],_,Col,Col):-!.
+aparitii([H|T],H,Col,Rez):-
+    Col1 is Col+1,!,
+    aparitii(T,H,Col1,Rez).
+aparitii([H|T],E,Col,Rez):-
+    H =\= E,
+    aparitii(T,E,Col,Rez).
+
+
+merge1([],[],[]).
+merge1([H1|T1],[],Rez):-
+    merge1(T1,[],R),
+    Rez=[H1|R],!.
+merge1([],[H2|T2],Rez):-
+    merge1([],T2,R),
+    Rez=[H2|R],!.
+merge1([H1|T1],[H2|T2],Rez):-
+    H1=<H2,
+    merge1(T1,[H2|T2],R),
+     Rez=[H1|R],!.
+
+merge1([H1|T1],[H2|T2],Rez):-
+    H2<H1,  %%here
+    merge1([H1|T1],T2,R),
+     Rez=[H2|R],!.
+
+
+no_dupp([],_,[]):-!.
+no_dupp([H|T],Last,R):-
+    H =\=Last,
+    no_dupp(T,H,R2),
+    R=[H|R2],!.
+no_dupp([H|T],Last,R):-
+    H=:=Last,
+     no_dupp(T,Last,R),!.
+
+main([],[]):-!.
+main([H1|T1],[H2|T2],R):-
+    merge([H1|T1],[H2|T2],Rez),
+    no_dupp(Rez,0,R).
+
+
+
+
+
+
+
+

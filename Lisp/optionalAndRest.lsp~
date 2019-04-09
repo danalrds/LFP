@@ -1,0 +1,129 @@
+
+CL-USER 1 > (list '((7 8 (7))) '(6 7) 9)
+(((7 8 (7))) (6 7) 9)
+
+CL-USER 2 > (append '(1 23) 6 7 '(4 5 6))
+
+Error: 6 is not of type LIST.
+  1 (abort) Return to level 0.
+  2 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 3 : 1 > (setq Op '+)
++
+
+CL-USER 4 : 1 > (eval '(Op 1 2))
+
+Error: Undefined operator OP in form (OP 1 2).
+  1 (continue) Try invoking OP again.
+  2 Return some values from the form (OP 1 2).
+  3 Try invoking something other than OP with the same arguments.
+  4 Set the symbol-function of OP to another function.
+  5 Set the macro-function of OP to another function.
+  6 (abort) Return to level 1.
+  7 Return to debug level 1.
+  8 Return to level 0.
+  9 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 5 : 2 > (eval '('Op 1 2))
+
+Error: Illegal argument in functor position: (QUOTE OP) in ((QUOTE OP) 1 2).
+  1 (continue) Evaluate (QUOTE OP) and ignore the rest.
+  2 (abort) Return to level 2.
+  3 Return to debug level 2.
+  4 Return to level 1.
+  5 Return to debug level 1.
+  6 Return to level 0.
+  7 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 6 : 3 > 'Op
+OP
+
+CL-USER 7 : 3 > (setq Op '+)
++
+
+CL-USER 8 : 3 > Op
++
+
+CL-USER 9 : 3 > (eval Op 2 3)
+
+Error: The call (#<Function EVAL 202BDDF2> + 2 3) does not match definition (#<Function EVAL 202BDDF2> EXP).
+   1 (continue) Return a value from the call to #<Function EVAL 202BDDF2>.
+   2 Try calling #<Function EVAL 202BDDF2> again.
+   3 Try calling another function instead of #<Function EVAL 202BDDF2> with the same arguments.
+   4 Try calling #<Function EVAL 202BDDF2> with a new argument list.
+   5 (abort) Return to level 3.
+   6 Return to debug level 3.
+   7 Evaluate (QUOTE OP) and ignore the rest.
+   8 Return to level 2.
+   9 Return to debug level 2.
+  10 Return to level 1.
+  11 Return to debug level 1.
+  12 Return to level 0.
+  13 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 10 : 4 > (funcall Op 2 3)
+5
+
+CL-USER 11 : 4 > (eval '(+ 2 3))
+5
+
+CL-USER 12 : 4 > (setq Q 'CAR)
+CAR
+
+CL-USER 13 : 4 > (funcall Q '(1 2 3))
+1
+
+CL-USER 14 : 4 > (f 1 2)
+3
+
+CL-USER 15 : 4 > (f 1)
+1
+
+CL-USER 16 : 4 > (f 1 2 3)
+
+Error: The call (#<Function F 200FB42A> 1 2 3) does not match definition (#<Function F 200FB42A> X &OPTIONAL Y).
+   1 Return a value from the call to #<Function F 200FB42A>.
+   2 Try calling #<Function F 200FB42A> again.
+   3 Try calling another function instead of #<Function F 200FB42A> with the same arguments.
+   4 Try calling #<Function F 200FB42A> with a new argument list.
+   5 (abort) Return to level 4.
+   6 Return to debug level 4.
+   7 Return a value from the call to #<Function EVAL 202BDDF2>.
+   8 Try calling #<Function EVAL 202BDDF2> again.
+   9 Try calling another function instead of #<Function EVAL 202BDDF2> with the same arguments.
+  10 Try calling #<Function EVAL 202BDDF2> with a new argument list.
+  11 Return to level 3.
+  12 Return to debug level 3.
+  13 (continue) Evaluate (QUOTE OP) and ignore the rest.
+  14 Return to level 2.
+  15 Return to debug level 2.
+  16 Return to level 1.
+  17 Return to debug level 1.
+  18 Return to level 0.
+  19 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 17 : 5 > (g 1 2)
+3
+
+CL-USER 18 : 5 > (g 1 2 9)
+12
+
+CL-USER 19 : 5 > (g 1 2 9 10)
+22
+
+CL-USER 20 : 5 > 

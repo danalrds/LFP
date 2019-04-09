@@ -1,0 +1,106 @@
+
+CL-USER 1 > (setq A 10)
+10
+
+CL-USER 2 > (inc A)
+11
+
+CL-USER 3 > (increase A)
+11
+
+CL-USER 4 > (Myincrease A)
+11
+
+CL-USER 5 > (yuhuu A)
+11
+
+CL-USER 6 > A
+10
+
+CL-USER 7 > (yuhu2 A)
+
+Error: In + of (1 A) arguments should be of type NUMBER.
+  1 (continue) Return a value to use.
+  2 Supply a new second argument.
+  3 (abort) Return to level 0.
+  4 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 8 : 1 > (yuhu2 'A)
+
+Error: In + of (1 (QUOTE A)) arguments should be of type NUMBER.
+  1 (continue) Return a value to use.
+  2 Supply a new second argument.
+  3 (abort) Return to level 1.
+  4 Return to debug level 1.
+  5 Return a value to use.
+  6 Supply a new second argument.
+  7 Return to level 0.
+  8 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 9 : 2 > (yuhu2 (eval A))
+
+Error: In + of (1 (EVAL A)) arguments should be of type NUMBER.
+   1 (continue) Return a value to use.
+   2 Supply a new second argument.
+   3 (abort) Return to level 2.
+   4 Return to debug level 2.
+   5 Return a value to use.
+   6 Supply a new second argument.
+   7 Return to level 1.
+   8 Return to debug level 1.
+   9 Return a value to use.
+  10 Supply a new second argument.
+  11 Return to level 0.
+  12 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 10 : 3 > (yuhu2 (eval 'A))
+
+Error: In + of (1 (EVAL (QUOTE A))) arguments should be of type NUMBER.
+   1 (continue) Return a value to use.
+   2 Supply a new second argument.
+   3 (abort) Return to level 3.
+   4 Return to debug level 3.
+   5 Return a value to use.
+   6 Supply a new second argument.
+   7 Return to level 2.
+   8 Return to debug level 2.
+   9 Return a value to use.
+  10 Supply a new second argument.
+  11 Return to level 1.
+  12 Return to debug level 1.
+  13 Return a value to use.
+  14 Supply a new second argument.
+  15 Return to level 0.
+  16 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 11 : 4 > (yuhu2 A)
+11
+
+CL-USER 12 : 4 > A
+11
+
+CL-USER 13 : 4 > (yuhuu A)
+12
+
+CL-USER 14 : 4 > A
+11
+
+CL-USER 15 : 4 > (yuhu2 A)
+12
+
+CL-USER 16 : 4 > A
+12
+
+CL-USER 17 : 4 > 

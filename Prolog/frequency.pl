@@ -1,0 +1,43 @@
+cont([],_,R,R):-!.
+cont([H|T],H,Rp,R):-
+    Rp2 is Rp+1,
+    cont(T,H,Rp2,R),!.
+cont([_|T],E,Rp,R):-
+    cont(T,E,Rp,R),!.
+
+remove([],_,[]):-!.
+remove([H|T],H,Rez):-
+    remove(T,H,Rez),!.
+remove([H|T],E,Rez):-
+    remove(T,E,R),
+    Rez=[H|R].
+
+main([],[]):-!.
+main([H|T],Rez):-
+    cont([H|T],H,0,Cont),
+    List=[H,Cont],
+    remove([H|T],H,R),
+    main(R,R2),
+    Rez=[List|R2].
+
+
+remove_repet([],[]):-!.
+remove_repet([H|T],Rez):-
+    cont([H|T],H,0,Cont),
+    Cont>1,
+    remove([H|T],H,List),
+    remove_repet(List,Rez),!.
+remove_repet([H|T],Rez):-
+    cont([H|T],H,0,Cont),
+    Cont=:=1,
+    remove_repet(T,R),
+    Rez=[H|R].
+
+list_to_set([],[]):-!.
+list_to_set([H|T],Rez):-
+    remove([H|T],H,List),
+    list_to_set(List,R),
+    Rez=[H|R].
+
+
+

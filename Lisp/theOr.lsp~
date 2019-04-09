@@ -1,0 +1,232 @@
+
+CL-USER 1 > (set 'L '(T nil T))
+(T NIL T)
+
+CL-USER 2 > L
+(T NIL T)
+
+CL-USER 3 > (set LL '(T nil T))
+
+Error: The variable LL is unbound.
+  1 (continue) Try evaluating LL again.
+  2 Specify a value to use this time instead of evaluating LL.
+  3 Specify a value to set LL to.
+  4 (abort) Return to level 0.
+  5 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 4 : 1 > (setq H 'G)
+G
+
+CL-USER 5 : 1 > (set H 'F)
+F
+
+CL-USER 6 : 1 > G
+F
+
+CL-USER 7 : 1 > L
+(T NIL T)
+
+CL-USER 8 : 1 > (myOr '(T nil T))
+T
+
+CL-USER 9 : 1 > (myOr '(nil nil T))
+T
+
+CL-USER 10 : 1 > (myOr '(nil nil nil))
+T
+
+CL-USER 11 : 1 > (myOr '(T nil T))
+T
+
+CL-USER 12 : 1 > (myOr '(nil nil T))
+T
+
+CL-USER 13 : 1 > (myOr '(nil nil nil))
+NIL
+
+CL-USER 14 : 1 > L
+(T NIL T)
+
+CL-USER 15 : 1 > (apply 'myOr L)
+
+Error: The call (#<Function MYOR 200F2942> T NIL T) does not match definition (#<Function MYOR 200F2942> L).
+  1 (continue) Return a value from the call to #<Function MYOR 200F2942>.
+  2 Try calling #<Function MYOR 200F2942> again.
+  3 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+  4 Try calling #<Function MYOR 200F2942> with a new argument list.
+  5 (abort) Return to level 1.
+  6 Return to debug level 1.
+  7 Return to level 0.
+  8 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 16 : 2 > (apply 'myOr L)
+
+Error: The call (#<Function MYOR 200F2942> T NIL T) does not match definition (#<Function MYOR 200F2942> L).
+   1 (continue) Return a value from the call to #<Function MYOR 200F2942>.
+   2 Try calling #<Function MYOR 200F2942> again.
+   3 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+   4 Try calling #<Function MYOR 200F2942> with a new argument list.
+   5 (abort) Return to level 2.
+   6 Return to debug level 2.
+   7 Return a value from the call to #<Function MYOR 200F2942>.
+   8 Try calling #<Function MYOR 200F2942> again.
+   9 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+  10 Try calling #<Function MYOR 200F2942> with a new argument list.
+  11 Return to level 1.
+  12 Return to debug level 1.
+  13 Return to level 0.
+  14 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 17 : 3 > (apply 'myOr 'L)
+
+Error: Final argument to apply is not a list: L
+   1 (abort) Return to level 3.
+   2 Return to debug level 3.
+   3 Return a value from the call to #<Function MYOR 200F2942>.
+   4 Try calling #<Function MYOR 200F2942> again.
+z   5 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+   6 Try calling #<Function MYOR 200F2942> with a new argument list.
+   7 Return to level 2.
+   8 Return to debug level 2.
+   9 Return a value from the call to #<Function MYOR 200F2942>.
+  10 Try calling #<Function MYOR 200F2942> again.
+  11 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+  12 Try calling #<Function MYOR 200F2942> with a new argument list.
+  13 Return to level 1.
+  14 Return to debug level 1.
+  15 Return to level 0.
+  16 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 18 : 4 > L
+(T NIL T)
+
+CL-USER 19 : 4 > (reduce #'OR L)
+
+Error: OR names a macro -- bad arg for FUNCTION.
+   1 (abort) Return to level 4.
+   2 Return to debug level 4.
+   3 Return to level 3.
+   4 Return to debug level 3.
+   5 Return a value from the call to #<Function MYOR 200F2942>.
+   6 Try calling #<Function MYOR 200F2942> again.
+   7 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+   8 Try calling #<Function MYOR 200F2942> with a new argument list.
+   9 Return to level 2.
+  10 Return to debug level 2.
+  11 Return a value from the call to #<Function MYOR 200F2942>.
+  12 Try calling #<Function MYOR 200F2942> again.
+  13 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+  14 Try calling #<Function MYOR 200F2942> with a new argument list.
+  15 Return to level 1.
+  16 Return to debug level 1.
+  17 Return to level 0.
+  18 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 20 : 5 > (reduce #'myOr L)
+
+Error: The call (#<Function MYOR 200F2942> T NIL) does not match definition (#<Function MYOR 200F2942> L).
+   1 (continue) Return a value from the call to #<Function MYOR 200F2942>.
+   2 Try calling #<Function MYOR 200F2942> again.
+   3 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+   4 Try calling #<Function MYOR 200F2942> with a new argument list.
+   5 (abort) Return to level 5.
+   6 Return to debug level 5.
+   7 Return to level 4.
+   8 Return to debug level 4.
+   9 Return to level 3.
+  10 Return to debug level 3.
+  11 Return a value from the call to #<Function MYOR 200F2942>.
+  12 Try calling #<Function MYOR 200F2942> again.
+sc  13 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+  14 Try calling #<Function MYOR 200F2942> with a new argument list.
+  15 Return to level 2.
+  16 Return to debug level 2.
+  17 Return a value from the call to #<Function MYOR 200F2942>.
+  18 Try calling #<Function MYOR 200F2942> again.
+  19 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+  20 Try calling #<Function MYOR 200F2942> with a new argument list.
+  21 Return to level 1.
+  22 Return to debug level 1.
+  23 Return to level 0.
+  24 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 21 : 6 > (apply 'myOr L)
+
+Error: The call (#<Function MYOR 200F2942> T NIL T) does not match definition (#<Function MYOR 200F2942> L).
+   1 (continue) Return a value from the call to #<Function MYOR 200F2942>.
+   2 Try calling #<Function MYOR 200F2942> again.
+   3 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+   4 Try calling #<Function MYOR 200F2942> with a new argument list.
+   5 (abort) Return to level 6.
+   6 Return to debug level 6.
+   7 Return a value from the call to #<Function MYOR 200F2942>.
+   8 Try calling #<Function MYOR 200F2942> again.
+   9 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+  10 Try calling #<Function MYOR 200F2942> with a new argument list.
+  11 Return to level 5.
+  12 Return to debug level 5.
+  13 Return to level 4.
+  14 Return to debug level 4.
+  15 Return to level 3.
+  16 Return to debug level 3.
+  17 Return a value from the call to #<Function MYOR 200F2942>.
+  18 Try calling #<Function MYOR 200F2942> again.
+  19 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+  20 Try calling #<Function MYOR 200F2942> with a new argument list.
+  21 Return to level 2.
+  22 Return to debug level 2.
+  23 Return a value from the call to #<Function MYOR 200F2942>.
+  24 Try calling #<Function MYOR 200F2942> again.
+  25 Try calling another function instead of #<Function MYOR 200F2942> with the same arguments.
+  26 Try calling #<Function MYOR 200F2942> with a new argument list.
+  27 Return to level 1.
+  28 Return to debug level 1.
+  29 Return to level 0.
+  30 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 22 : 7 > (myOr '(T nil T))
+(T NIL T)
+
+CL-USER 23 : 7 > L
+(T NIL T)
+
+CL-USER 24 : 7 > (apply 'myOr L)
+T
+
+CL-USER 25 : 7 > (set 'L '(nil nil nil))
+(NIL NIL NIL)
+
+CL-USER 26 : 7 > L
+(NIL NIL NIL)
+
+CL-USER 27 : 7 > (apply 'myOr L)
+NIL
+
+CL-USER 28 : 7 > (set 'L '(nil T nil))
+(NIL T NIL)
+
+CL-USER 29 : 7 > (apply 'myOr L)
+T
+
+CL-USER 30 : 7 > 

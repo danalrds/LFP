@@ -1,0 +1,28 @@
+%counts the number of appearances of E in a list
+cont([],_,R,R):-!.
+cont([H|T],H,Rp,R):-
+    Rp2 is Rp+1,
+    cont(T,H,Rp2,R),!.
+cont([_|T],E,Rp,R):-
+    cont(T,E,Rp,R),!.
+
+check([],_).
+check([H|T],[H2|T2]):-
+    cont([H2|T2],H,0,2),
+    check(T,[H2|T2]).
+
+this(List):-
+    check(List,List).
+
+%appends a list to the end of another list
+append([],List2,List2):-!.
+append(List1,[],List1):-!.
+append([H|T],List2,[HR|Rez]):-
+    HR is H,
+    append(T,List2,Rez).
+
+
+
+main(Set1,Set2):-
+    append(Set1,Set2,List),
+    this(List).

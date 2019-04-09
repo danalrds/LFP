@@ -1,0 +1,106 @@
+
+CL-USER 1 > (setq a 1)
+1
+
+CL-USER 2 > 'a
+A
+
+CL-USER 3 > a
+1
+
+CL-USER 4 > (myincf a)
+2
+
+CL-USER 5 > a
+1
+
+CL-USER 6 > (myinc a)
+
+Error: Setq with odd number of args.
+  1 (abort) Return to level 0.
+  2 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 7 : 1 > (myinc a)
+2
+
+CL-USER 8 : 1 > a
+2
+
+CL-USER 9 : 1 > a
+2
+
+CL-USER 10 : 1 > (myinc a)
+
+Error: Illegal argument in functor position: 1 in (1 A).
+  1 (continue) Evaluate 1 and ignore the rest.
+  2 (abort) Return to level 1.
+  3 Return to debug level 1.
+  4 Return to level 0.
+  5 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 11 : 2 > (myinc a)
+3
+
+CL-USER 12 : 2 > (setq F 10)
+10
+
+CL-USER 13 : 2 > (setq G 'F)
+F
+
+CL-USER 14 : 2 > (G '(1 2 8 7 6 4))
+
+Error: Undefined operator G in form (G (QUOTE (1 2 8 7 6 4))).
+   1 (continue) Try invoking G again.
+   2 Return some values from the form (G (QUOTE (1 2 8 7 6 4))).
+   3 Try invoking something other than G with the same arguments.
+   4 Set the symbol-function of G to another function.
+   5 Set the macro-function of G to another function.
+   6 (abort) Return to level 2.
+   7 Return to debug level 2.
+   8 Evaluate 1 and ignore the rest.
+   9 Return to level 1.
+  10 Return to debug level 1.
+  11 Return to level 0.
+  12 Return to top loop level 0.
+
+Type :b for backtrace or :c <option number> to proceed.
+Type :bug-form "<subject>" for a bug report template or :? for other options.
+
+CL-USER 15 : 3 > (funcall G '(1 2 3 4 5))
+3
+
+CL-USER 16 : 3 > (funcall G '(1 2 8 4 5))
+8
+
+CL-USER 17 : 3 > (setq L '(1 2 3))
+(1 2 3)
+
+CL-USER 18 : 3 > (car L)
+1
+
+CL-USER 19 : 3 > (replaceNodesK '(a (b (g)) (c (d (e)) (f))) 0 2 'h)
+(A (H (G)) (H (D (E)) (F)))
+
+CL-USER 20 : 3 > (replaceNodesK '(a (b (g)) (c (d (e)) (f))) -1 2 'h)
+(A (B (H)) (C (H (E)) (H)))
+
+CL-USER 21 : 3 > 
+(replaceNodesK '(a (b (g)) (c (d (e)) (f))) -1 4 'h)
+(A (B (G)) (C (D (E)) (F)))
+
+CL-USER 22 : 3 > (replaceNodesK '(a (b (g)) (c (d (e)) (f))) -1 3 'h)
+(A (B (G)) (C (D (H)) (F)))
+
+CL-USER 23 : 3 > (replaceNodesK '(a (b (g)) (c (d (e)) (f))) -1 1 'h)
+(A (H (G)) (H (D (E)) (F)))
+
+CL-USER 24 : 3 > (replaceNodesK '(a (b (g)) (c (d (e)) (f))) -1 0 'h)
+(H (B (G)) (C (D (E)) (F)))
+
+CL-USER 25 : 3 > 

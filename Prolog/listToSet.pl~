@@ -1,0 +1,10 @@
+isInsid([E|_],E).
+isInsid([_|T],E):-
+    isInsid(T,E).
+
+listToSet([],[]).
+listToSet([H|T],R):-
+    isInsid(T,H),!,
+    listToSet(T,R).
+listToSet([H|T],[H|RR]):-
+    listToSet(T,RR).

@@ -1,0 +1,30 @@
+max([E],E):-!.
+max([H|T],H):-
+    max(T,M),
+    H>M,!.
+max([H|T],M):-
+    max(T,M),
+    H=<M.
+
+
+isIns([E|_],E):-!.
+isIns([H|T],E):-
+    H=\=E,
+    isIns(T,E).
+
+list(A,B,R):-
+   R=[A,B] .
+
+
+do([E],A,[A,E]):-!.
+do([H|T],A,R):-
+    do(T,A,RR),
+    list(A,H,RL),
+    R=[RL|RR].
+
+mainFunction([],[]).
+mainFunction([_],[]):-!.
+mainFunction([H|T],R):-
+    do(T,H,RP),
+    mainFunction(T,RR),
+    R=[RP|RR].
